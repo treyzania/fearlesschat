@@ -1,0 +1,6 @@
+[workspace]
+members = [
+	"fearlessd",
+	"flchat",
+	"libfearless"
+]
