@@ -44,12 +44,12 @@ more details, see below.
 
 | Name        | Argument(s)                              | Description                                                              |
 |-------------|------------------------------------------|--------------------------------------------------------------------------|
-| `pubmsg`    | <blob>                                   | Publishes a signed message to the network.                               |
-| `msg`       | <name>@<channel> <msg...>                | Instructs the server to construct and public a simple, unsigned message. |
-| `subchan`   | <on|off> <channel name>                  | Subscribes a light client to a channel.                                  |
-| `dhthello`  | <jsonblob>                               | Announces the node to the DHT, etc.                                      |
-| `dhtid`     | <signature> <name> <publickey> <misc...> | Publishes the identity record on the DHT.                                |
-| `dhtsync`   | <speed>                                  | Requests a synchronization with the DHT, in records per second.          |
+| `pubmsg`    | blob                                     | Publishes a signed message to the network.                               |
+| `msg`       | name@channel msg...                      | Instructs the server to construct and public a simple, unsigned message. |
+| `subchan`   | on,off channelname                       | Subscribes a light client to a channel.                                  |
+| `dhthello`  | jsonblob                                 | Announces the node to the DHT, etc.                                      |
+| `dhtid`     | signature name publickey misc...         | Publishes the identity record on the DHT.                                |
+| `dhtsync`   | speed                                    | Requests a synchronization with the DHT, in records per second.          |
 
 ## Control Signals
 
@@ -58,7 +58,7 @@ protocol is largely symmetric as-is.*
 
 | Name    | Parameters             | Description                                 |
 |---------|------------------------|---------------------------------------------|
-| `LcMsg` | <name>@<channel> <msg> | A message was sent on a subscribed channel. |
+| `LcMsg` | name@channel msg       | A message was sent on a subscribed channel. |
 
 ## Chat Message Format
 
@@ -113,6 +113,8 @@ Encryption:
 * RSA-2048
 
 * RSA-4096
+
+* plain (Aka, no signing.  Not suggested.)
 
 Hash Algorithms:
 
